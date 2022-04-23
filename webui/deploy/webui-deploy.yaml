@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webui
+  name: webui
+  namespace: smartbus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      labels:
+        app: webui
+    spec:
+      containers:
+      - image: pramodepandit/smartbus-webui:latest
+        imagePullPolicy: Always
+        name: smartbus-webui
